@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Event</title>
+  </head>
+
+  <body>
+    <a href="#" id="link">Some beautiful link</a>
+    <button type="submit">Submit me</button>
+    <script>
+      document.getElementById('link').onclick = event => {
+        console.log(event);
+        console.log(event.target);
+        event.preventDefault();
+      };
+      document.querySelector('button').onclick = event => {
+        alert('The submit button has not submitted the page.');
+        event.preventDefault();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Keyboard events</title>
+    <style>
+        div {
+            border: 2px solid black;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <h2>Keyup</h2>
+    <div id="up">
+
+    </div>
+    <h2>Keydown</h2>
+    <div id="down">
+
+    </div>
+    <script>
+        const up = document.getElementById('up');
+        const down = document.getElementById('down');
+
+        document.addEventListener('keyup', (e) => {
+            up.textContent += ` ${e.code}`;
+            console.log(e);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            down.textContent += ` ${e.code}`;
+            console.log(e);
+        });
+    </script>
+  </body>
+</html>
