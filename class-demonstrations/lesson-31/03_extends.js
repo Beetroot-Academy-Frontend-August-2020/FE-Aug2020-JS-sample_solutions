@@ -9,9 +9,15 @@ class Point {
   }
 }
 
+const parent = new Point(10,5);
+parent.printPosition();
+
+// Point3D = subclass
+// Point = base or main or super or root class
+// extends = inheritance
 class Point3D extends Point {
   constructor(x, y, z) {
-    super(x, y);
+    super(x, y); // calls the constructor in your super class - Point.constructor()
     this.z = z;
   }
   

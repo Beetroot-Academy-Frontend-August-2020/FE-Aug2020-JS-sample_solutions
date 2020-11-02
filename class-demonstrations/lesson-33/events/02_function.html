@@ -7,11 +7,19 @@
     <title>Function</title>
   </head>
   <body>
-    <button onclick="buttonClick">Click me!</button>
+    <button>Click me!</button>
     <script>
-      function buttonClick() {
+      // let button = document.querySelector('button');
+      // button.onclick = buttonClick;
+
+      // function buttonClick() {
+      //   alert('Button clicked');
+      // }
+    
+      // chaining
+      document.querySelector('button').onclick = () => {
         alert('Button clicked');
-      }
+      };
     </script>
   </body>
 </html>
