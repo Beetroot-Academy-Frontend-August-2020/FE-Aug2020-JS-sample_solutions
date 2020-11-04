@@ -29,12 +29,12 @@
 
         document.addEventListener('keyup', (e) => {
             up.textContent += ` ${e.code}`;
-            console.log(e);
+            console.log(e.code, e.type);
         });
 
         document.addEventListener('keydown', (e) => {
             down.textContent += ` ${e.code}`;
-            console.log(e);
+            console.log(e.code, e.type);
         });
     </script>
   </body>

@@ -1,0 +1,5 @@
+1. code the HTML and CSS 
+2. figure out media queries (add breakpoints)
+3. add font awesome library
+4. code the JavaScript
+5. test the behavior with DevTools and (un-)clicking the menu

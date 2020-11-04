@@ -11,6 +11,10 @@
     <button id="btn">Click me!</button>
     <div>test div.</div>
     <script>
+      function buttonPressed() {
+          alert("And again...");
+      }
+      
       let btn = document.getElementById('btn');
 
       btn.addEventListener('click', () => alert('Button clicked'));
@@ -19,9 +23,6 @@
           alert("Again");
       });
 
-      function buttonPressed() {
-          alert("And again...");
-      }
       btn.addEventListener('click', buttonPressed);
 
       let div = document.querySelector('div');
