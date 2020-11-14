@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Controlling Zoom and Pan</title>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link href="./styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            const center = {
+                lat: 59.3364224,
+                lng: 18.0767236,
+            };
+            const zoom = 13;
+            const map = new google.maps.Map(document.querySelector('#map'), {
+                center,
+                zoom,
+            });
+            const centerMarker = new google.maps.Marker({
+                position: center,
+                map,
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+            });
+            const bounds = new google.maps.LatLngBounds();
+            bounds.extend(center);
+            [{
+                    lat: 59.3364212,
+                    lng: 18.0613598,
+                },
+                {
+                    lat: 59.3364165,
+                    lng: 18.0611881,
+                },
+                {
+                    lat: 59.3364165,
+                    lng: 18.0611881,
+                },
+                {
+                    lat: 59.3289005,
+                    lng: 18.053596,
+                }
+            ].forEach((marker) => {
+                const m = new google.maps.Marker({
+                    position: marker,
+                    map: map,
+                });
+                m.addListener("click", () => {
+                    infowindow.open(map, m);
+                });
+                const infowindow = new google.maps.InfoWindow({
+                    content: 'Another recording studio',
+                });
+                bounds.extend(marker);
+            });
+            map.fitBounds(bounds);
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGdburjix-rrxogO0qgSwKC8G8iCPzF2M&callback=initMap">
+    </script>
+</body>
+
+</html>

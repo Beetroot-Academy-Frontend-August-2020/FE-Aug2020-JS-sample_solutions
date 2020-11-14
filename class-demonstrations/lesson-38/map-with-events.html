@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map with Event Handlers</title>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link href="./styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            const location = {
+                lat: 59.3381097,
+                lng: 17.9111749,
+            };
+            const basicOptions = {
+                center: location,
+                zoom: 8
+            };
+            const map = new google.maps.Map(document.querySelector('#map'), basicOptions);
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+            map.addListener("center_changed", () => {
+                // 3 seconds after the center of the map has changed, pan back to the
+                // marker.
+                window.setTimeout(() => {
+                    map.panTo(marker.getPosition());
+                }, 3000);
+            });
+            marker.addListener("click", () => {
+                map.setZoom(15);
+                map.setCenter(marker.getPosition());
+            });
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGdburjix-rrxogO0qgSwKC8G8iCPzF2M&callback=initMap">
+    </script>
+</body>
+
+</html>

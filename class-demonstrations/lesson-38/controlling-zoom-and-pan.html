@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Controlling Zoom and Pan</title>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link href="./styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        /*
+        https://www.google.com/maps/place/
+        Grimsta+nature+reserve/@59.356999,17.8529895,17z/
+        data=!3m1!4b1!4m5!3m4!1s0x465f9f6c248ca095:0x7e1956263746e895!8m2!3d59.356999!4d17.8551835
+        */
+        function initMap() {
+            const center = {
+                lat: 59.356999,
+                lng: 17.8529895,
+            };
+            const zoom = 15;
+            const map = new google.maps.Map(document.querySelector('#map'), {
+                center,
+                zoom,
+                // gestureHandling: "cooperative",
+                // gestureHandling: "auto",
+                // gestureHandling: "greedy",
+                gestureHandling: "none",
+                minZoom: zoom - 3,
+                maxZoom: zoom + 3,
+                restriction: {
+                    latLngBounds: {
+                        north: -30,
+                        south: -20,
+                        east: 160,
+                        west: 100,
+                    },
+                },
+            });
+            const marker = new google.maps.Marker({
+                position: center,
+                map: map,
+            });
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGdburjix-rrxogO0qgSwKC8G8iCPzF2M&callback=initMap">
+    </script>
+</body>
+</html>

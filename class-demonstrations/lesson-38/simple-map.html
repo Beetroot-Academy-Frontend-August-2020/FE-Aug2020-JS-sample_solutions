@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link href="./styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+        // co-ordinates to Judarskogen
+        /* https://www.google.com/maps/place/Judarskogen+Nature+Preserve/
+            @59.3381097,17.9111749,17z/
+            data=!3m1!4b1!4m5!3m4!1s0x465f75f1b827104b:0x463ef6f052b6efc1!8m2!3d59.3381097!4d17.9133688
+        */
+      function initMap() {
+        const location = {
+                lat: 59.3381097,
+                lng: 17.9111749,
+            };
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: location,
+          zoom: 15
+        });
+      }
+    </script>
+    <!-- Pass your API key instead of YOUR_API_KEY -->
+    <!-- https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGdburjix-rrxogO0qgSwKC8G8iCPzF2M&callback=initMap"></script>
+  </body>
+</html>
