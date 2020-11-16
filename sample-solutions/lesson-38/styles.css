@@ -1,0 +1,39 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background-color: rgb(192, 192, 202);
+  font-family: 'Poppins', sans-serif;
+}
+
+#map {
+    position: relative;
+    width: 800px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#info-window {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  color: brown;
+  font-weight: bold;
+}
+
+#directions-panel {
+  display: block;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
+}

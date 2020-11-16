@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link href="./styles.css" rel="stylesheet">
+    <title>Mina's Favorite Restaurants in Stockholm</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <h1>Mina's Favorite Restaurants in Stockholm</h1>
+        <h3>This is an interactive map of my favorite restaurants in Stockholm.</h3>
+        <form>
+            <label for="from">From:</label>
+            <select name="from" id="from">
+                <option value="" selected>-- Please select a restaurant --</option>
+            </select>
+            <label for="to">To:</label>
+            <select name="to" id="to">
+                <option value="" selected>-- Please select a restaurant --</option>
+            </select>
+            <button type="button" id="calculateDistance">Show directions!</button>
+        </form>
+        <div id="map"></div>
+        <div id="directions-panel"></div>
+    </section>
+    <script src="./scripts.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGdburjix-rrxogO0qgSwKC8G8iCPzF2M&callback=initMap"></script>
+</body>
+</html>
