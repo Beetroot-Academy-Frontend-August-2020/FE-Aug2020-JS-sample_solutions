@@ -1,0 +1,28 @@
+{
+  "name": "lesson-43",
+  "version": "1.0.0",
+  "description": "lesson 43 website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mina Demian",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "node-sass": "^5.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "IE 11",
+    "IE_Mob 11",
+    "Safari 6",
+    "iOS 7",
+    "maintained node versions"
+  ]
+}

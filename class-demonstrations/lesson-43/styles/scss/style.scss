@@ -1,0 +1,31 @@
+.blog {
+  margin: 30px 50px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(black, 0.2);
+  background-color: rgba(grey, 0.1);
+
+  &__title {
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  &__description {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  &__image > img {
+    width: 50%;
+  }
+
+  &__caption {
+    font-size: 13px;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
