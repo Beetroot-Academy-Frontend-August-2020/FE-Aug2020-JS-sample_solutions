@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Computed properties</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="container pt-4">
+        <h1>Computed properties</h1>
+        <hr />
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr v-for="phone in phones">
+              <td>{{phone.name}}</td>
+              <td>${{phone.price}}</td>
+              <td>
+                <button class="btn btn-warning" @click="buy(phone)">
+                  Buy
+                </button>
+              </td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td><b>Total</b></td>
+              <td><b>${{totalPrice}}</b></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          phones: [
+            {
+              name: 'Nokia 3',
+              price: 400,
+            },
+            {
+              name: 'iPhone 5s',
+              price: 500,
+            },
+            {
+              name: 'iPhone 6s',
+              price: 600,
+            },
+            {
+              name: 'iPhone 7s',
+              price: 1000,
+            },
+            {
+              name: 'iPhone 8',
+              price: 1800,
+            },
+            {
+              name: 'iPhone X',
+              price: 2200,
+            },
+            {
+              name: 'Huawey P8',
+              price: 350,
+            },
+            {
+              name: 'Samsung Note 8',
+              price: 750,
+            },
+            {
+              name: 'Samsung Galaxy S9',
+              price: 1300,
+            },
+          ],
+          basket: [],
+        },
+        computed: {
+          totalPrice() {
+            return this.basket.reduce((total, item) => total + item.price, 0);
+          },
+        },
+        methods: {
+          buy(phone) {
+            this.basket.push(phone);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

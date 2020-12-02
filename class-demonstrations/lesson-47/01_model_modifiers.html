@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Modifiers</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container pt-5">
+        <h1>v-model modifiers</h1>
+        <hr />
+        <h4><samp>trim </samp> modifier</h4>
+        <div class="form-group">
+          <label for="search-input">Search</label>
+          <input
+            type="text"
+            class="form-control"
+            id="search-input"
+            placeholder="Search..."
+            v-model="search"
+          />
+          <small class="form-text text-muted"><b>|</b>{{search}}<b>|</b></small>
+        </div>
+        <h4><samp>number</samp> modifier</h4>
+        <div class="form-group">
+          <label for="number-input">Type a number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="number-input"
+            placeholder="Type a number"
+            v-model.number="result"
+          />
+          <small class="form-text text-muted">{{result}}</small>
+          <small class="form-text text-muted">Type is {{typeof result}}</small>
+        </div>
+        <h4><samp>lazy</samp> modifier</h4>
+        <div class="form-group">
+          <label for="lazy-input">Search</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lazy-input"
+            placeholder="Search..."
+            v-model.lazy="lazy"
+          />
+          <small class="form-text text-muted">
+            Search: <span>{{lazy}}</span>
+          </small>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          search: '',
+          result: '',
+          lazy: '',
+        },
+      });
+    </script>
+  </body>
+</html>

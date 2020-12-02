@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rendering</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="container pt-4">
+        <h1>Rendering</h1>
+        <hr />
+        <div>
+          <h2>Conditional rendering</h2>
+          <div class="form-group">
+            <button class="btn btn-primary" @click="showText = !showText">
+              <span>{{showText ? 'Hide' : 'Show'}}</span> text
+            </button>
+          </div>
+          <p v-if="showText">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum rerum
+            nihil, impedit laudantium repudiandae sapiente neque vero nam ex,
+            beatae quibusdam illum deserunt numquam culpa tenetur alias rem eum
+            dicta.
+          </p>
+          <hr />
+          <div class="form-group">
+            <button class="btn btn-danger mr-2" @click="error = !error">
+              Toggle error
+            </button>
+            <button class="btn btn-success" @click="success = !success">
+              Toggle success
+            </button>
+          </div>
+          <div class="alert alert-danger" v-if="error">
+            There is some error.
+          </div>
+          <div class="alert alert-success" v-else-if="success">
+            Everything is good.
+          </div>
+        </div>
+        <hr />
+        <h2>List rendering</h2>
+        <p>Looping through array of strings</p>
+        <ul>
+          <li v-for="course in courses">{{course}}</li>
+        </ul>
+        <p>Looping through array of objects</p>
+        <ul>
+          <li v-for="(student, i) in students">
+            <b>{{i}}</b> - {{student.name}} is {{student.age}} years old.
+          </li>
+        </ul>
+        <template v-for="(student, i) in students">
+          <h4>{{i}}. {{student.name}}</h4>
+          <p>Age is {{student.age}}</p>
+        </template>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          showText: true,
+          error: false,
+          success: false,
+          courses: ['Front-end', 'Back-end', 'Node.js'],
+          students: [
+            {
+              name: 'Ryu',
+              age: 25,
+            },
+            {
+              name: 'Jane',
+              age: 20,
+            },
+            {
+              name: 'Ken',
+              age: 23,
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

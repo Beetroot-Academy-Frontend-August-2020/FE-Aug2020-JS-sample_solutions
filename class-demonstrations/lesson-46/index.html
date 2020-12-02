@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds
+            to see my dynamically bound title!
+        </span>
+    </div>
+    <h2>More examples</h2>
+    <ol>
+        <li><a href="./01_instance.html">Another example with instances</a></li>
+        <li><a href="./02_data.html">Working with data</a></li>
+        <li><a href="./03_bindings.html">Bindings</a></li>
+        <li><a href="./04_form_bindings.html">Form bindings</a></li>
+        <li><a href="./05_methods.html">Methods</a></li>
+        <li><a href="./06_lifecycle.html">App lifecycle</a></li>
+    </ol>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

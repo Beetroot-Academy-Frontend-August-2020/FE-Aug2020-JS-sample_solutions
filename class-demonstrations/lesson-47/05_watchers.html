@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watchers</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container pt-4">
+        <h1>Watchers</h1>
+        <hr />
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <div class="form-group">
+              <label for="kilometers">Kilometers</label>
+              <input
+                type="number"
+                class="form-control"
+                id="kilometers"
+                v-model.number="kilometers"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="form-group">
+              <label for="meters">Meters</label>
+              <input
+                type="number"
+                class="form-control"
+                id="meters"
+                v-model.number="meters"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          kilometers: 0,
+          meters: 0,
+        },
+        watch: {
+          kilometers(newValue, oldValue) {
+            console.log(`new value - ${newValue}, old value - ${oldValue}`);
+            this.meters = newValue * 1000;
+          },
+          meters(newValue, oldValue) {
+            console.log(`new value - ${newValue}, old value - ${oldValue}`);
+            this.kilometers = newValue / 1000;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
