@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-text="name"></p>
+        <ol>
+            <li v-for="show in tvShows">
+                <a v-bind:href="show.link" v-bind:title="show.hint">{{show.name}}</a>
+            </li>
+        </ol>
+    </div>
+    <a href="www.google.com" title="google">Google</a>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'Oana',
+                tvShows: [
+                    {
+                        name: 'The Sinner',
+                        link: 'https://www.imdb.com/title/tt6048596/?ref_=nv_sr_srsg_0',
+                        hint: 'Crime, Drama, Mystery',
+                    },
+                    {
+                        name: 'Game of Thrones',
+                        link: 'https://www.imdb.com/title/tt0944947/?ref_=nv_sr_srsg_0',
+                        hint: 'Action, Adventure, Drama',
+                    },
+                    {
+                        name: 'The Good Place',
+                        link: 'https://www.imdb.com/title/tt4955642/?ref_=nv_sr_srsg_0',
+                        hint: 'Comedy, Drama, Fantasy',
+                    },
+                    {
+                        name: 'Friends',
+                        link: 'https://www.imdb.com/title/tt0108778/?ref_=nv_sr_srsg_0',
+                        hint: 'Comedy, Romance',
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

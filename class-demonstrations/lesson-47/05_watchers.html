@@ -19,23 +19,23 @@
         <div class="row">
           <div class="col-12 col-sm-6">
             <div class="form-group">
-              <label for="kilometers">Kilometers</label>
+              <label for="kilometers">SEK</label>
               <input
                 type="number"
                 class="form-control"
-                id="kilometers"
-                v-model.number="kilometers"
+                id="sek"
+                v-model.number="sek"
               />
             </div>
           </div>
           <div class="col-12 col-sm-6">
             <div class="form-group">
-              <label for="meters">Meters</label>
+              <label for="meters">Euro</label>
               <input
                 type="number"
                 class="form-control"
-                id="meters"
-                v-model.number="meters"
+                id="euro"
+                v-model.number="euro"
               />
             </div>
           </div>
@@ -47,15 +47,15 @@
       const vm = new Vue({
         el: '#app',
         data: {
-          kilometers: 0,
-          meters: 0,
+          sek: 0,
+          euro: 0,
         },
         watch: {
-          kilometers(newValue, oldValue) {
+          sek(newValue, oldValue) {
             console.log(`new value - ${newValue}, old value - ${oldValue}`);
-            this.meters = newValue * 1000;
+            this.sek = newValue * 1000;
           },
-          meters(newValue, oldValue) {
+          euro(newValue, oldValue) {
             console.log(`new value - ${newValue}, old value - ${oldValue}`);
             this.kilometers = newValue / 1000;
           },

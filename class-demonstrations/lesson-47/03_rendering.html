@@ -20,6 +20,14 @@
         <hr />
         <div>
           <h2>Conditional rendering</h2>
+          <script>
+            // showText ? 'Hide' : 'Show' // ternary operator
+            // if (showText) {
+            //   console.log('Hide');
+            // } else {
+            //   console.log('Show');
+            // }
+          </script>
           <div class="form-group">
             <button class="btn btn-primary" @click="showText = !showText">
               <span>{{showText ? 'Hide' : 'Show'}}</span> text

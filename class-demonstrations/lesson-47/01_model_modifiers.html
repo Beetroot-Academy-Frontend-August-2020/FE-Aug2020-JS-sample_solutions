@@ -25,7 +25,7 @@
             class="form-control"
             id="search-input"
             placeholder="Search..."
-            v-model="search"
+            v-model.trim="search"
           />
           <small class="form-text text-muted"><b>|</b>{{search}}<b>|</b></small>
         </div>
@@ -68,6 +68,17 @@
           lazy: '',
         },
       });
+      // Model-View-Controller (MVC) - software design pattern
+      // model: database, data source
+      // view: presentation layer, UI/UX
+      // controller: contains the main logic
+      // const data = ['mina','fuad','obinna'];
+      /*
+        software: event management system
+        model: would store all of the events and users, it could also contain data preparation code
+        controller: contains the all of the main business logic, the booking, sending out emails
+        view: allows user to sign up for events
+      */
     </script>
   </body>
 </html>

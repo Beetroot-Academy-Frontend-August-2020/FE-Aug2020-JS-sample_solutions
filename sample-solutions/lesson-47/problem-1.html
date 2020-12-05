@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rendering</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+</head>
+<body>
+    <div id="app">
+        <h2>What is your favorite colour</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" id="color-input" placeholder="Type a color"
+                v-model="selectedColor" />
+            <label for="colours">Choose a colour:</label>
+            <p class="form-text" :style="apply ? changeTextColor : null">The color of the text will be changed to
+                {{selectedColor}}.</p>
+        </div>
+        <div class="form-group">
+            <label for="colors">Choose a colour:</label>
+            <select class="colors" name="colors" v-model="selectedColor">
+                <option value="">-- Please select a color --</option> 
+                <option value="blue" v-for="color in colors" >{{color}}</option>
+            </select>
+        </div>
+        <div class="formgroup">
+            <button @click="changeColor()" type="submit" class="btn btn-primary">
+                Change
+            </button>
+            <button @click="reset()" type="submit" class="btn btn-secondary">
+                Reset
+            </button>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                selectedColor: '',
+                appliedStyles: {
+                    color: '',
+                    fontSize: '18px'
+                },
+                apply: false,
+                colors: ['blue', 'red', 'green', 'yellow', 'grey'],
+            },
+            computed: {
+                changeTextColor() {
+                    this.appliedStyles.color = this.selectedColor;
+                    return this.appliedStyles;
+                }
+            },
+            methods: {
+                changeColor() {
+                    this.apply = true;
+                },
+                reset() {
+                    this.apply = false;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
